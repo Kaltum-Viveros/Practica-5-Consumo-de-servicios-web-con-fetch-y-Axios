@@ -1,29 +1,85 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Consumo de API con fetch y Axios</title>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplicación para consumir una API de estudiantes usando fetch y Axios">
+    <title>Consumo de API con fetch y Axios</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>Consumo de API de Estudiantes</h1>
+            <p>Práctica de consumo de APIs utilizando tanto la api nativa <strong>Fetch</strong> como la librería <strong>Axios</strong>.</p>
+        </header>
 
-    <body>
-        <h1>Consumo de API de estudiantes</h1>
+        <div class="main-content">
+            <section class="card">
+                <div class="card-header">
+                    <div class="icon">✨</div>
+                    <h2>Registrar Estudiante</h2>
+                </div>
+                <p class="subtitle">Añade un nuevo estudiante rellenando el siguiente formulario.</p>
+                <div class="form-group-row">
+                    <div class="input-container">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div class="input-container">
+                        <label for="email">Correo</label>
+                        <input type="email" id="email" placeholder="Ej. juan@ejemplo.com">
+                    </div>
+                    <div class="input-container">
+                        <label for="age">Edad</label>
+                        <input type="number" id="age" placeholder="Ej. 20">
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="createStudentFetch()">
+                        <span>POST con Fetch</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="createStudentAxios()">
+                        <span>POST con Axios</span>
+                    </button>
+                </div>
+            </section>
 
-        <h2>Consultar estudiantes</h2>
-        <button onclick="getStudentsFetch()">GET con fetch</button>
-        <button onclick="getStudentsAxios()">GET con Axios</button>
+            <section class="card">
+                <div class="card-header">
+                    <div class="icon">🔍</div>
+                    <h2>Consultar Estudiantes</h2>
+                </div>
+                <p class="subtitle">Obtén la lista completa de estudiantes registrados en la base de datos.</p>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="getStudentsFetch()">
+                        <span>GET con Fetch</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="getStudentsAxios()">
+                        <span>GET con Axios</span>
+                    </button>
+                </div>
 
-        <h2>Registrar estudiante</h2>
-        <input type="text" id="name" placeholder="Nombre">
-        <input type="email" id="email" placeholder="Correo">
-        <input type="number" id="age" placeholder="Edad">
-        <button onclick="createStudentFetch()">POST con fetch</button>
-        <button onclick="createStudentAxios()">POST con Axios</button>
+                <div class="card-header" style="margin-top: 1rem;">
+                    <div class="icon">💻</div>
+                    <h2>Resultado</h2>
+                </div>
+                <div class="code-container result-box">
+                    <pre id="resultado">Los resultados de la API aparecerán aquí...</pre>
+                </div>
+            </section>
+        </div>
+    </div>
 
-        <h2>Resultado</h2>
-        <pre id="resultado"></pre>
-
-        <script src="app.js"></script>
-    </body>
+    <script src="app.js"></script>
+</body>
 </html>
